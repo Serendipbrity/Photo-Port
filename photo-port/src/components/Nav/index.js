@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 function Nav() {
     const categories = [
         {
@@ -21,23 +23,25 @@ function Nav() {
     ];
     function categorySelected(name) {
         console.log(`${name} clicked`)
+        return name;
     }
+    
     return (
-        <header>
+        <header className="flex-row px-1">
             <h2>
-            <a href="/">
+            <a data-testid="link" href="/">
                 <span role="img" aria-label='camera'>📸</span> Oh Snap!
             </a>
             </h2>
             <nav>
                 <ul className="flex-row">
                     <li className="mx-2">
-                        <a href="#about">
+                        <a data-testid="link" href="#about" onClick={() => categorySelected()}>
                             About Me
                         </a>
                     </li>
                     <li>
-                        <span>Contact</span>
+                        <span onClick={() => categorySelected()}>Contact</span>
                     </li>
                         {categories.map((category) => (
                     <li className="mx-1" key={category.name}>

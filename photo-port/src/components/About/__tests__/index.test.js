@@ -1,7 +1,7 @@
 import React from "react";
 // cleanup is to remove components from the dom to prevent memory leaking/ anything that can corrupt tests
 import { render, cleanup } from '@testing-library/react';
-
+import '@testing-library/jest-dom/extend-expect';
 import About from "..";
 
 afterEach(cleanup);
