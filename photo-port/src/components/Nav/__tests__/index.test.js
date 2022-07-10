@@ -3,6 +3,8 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Nav from '..';
 
+
+
 afterEach(cleanup);
 
 // describe function isn't absolutely necessary for tests to run. It just organizes tests
@@ -14,7 +16,7 @@ describe('Nav component', () => {
     });
     //  snapshot test
     it('matches snapshot', () => {
-        const { asFragment } = render(<Nav />);
+        const { asFragment } = render(<Nav/>);
         //  assert value comparison
         expect(asFragment()).toMatchSnapshot();
     });
@@ -33,7 +35,7 @@ describe('Nav component', () => {
 // ------create test for emoji visibility-----
 describe('emoji is visible', () => {
     it('inserts emoji into the h2', () => {
-    const { getByLabelText } = render(<Nav />);
+    const { getByLabelText } = render(<Nav/>);
   
     expect(getByLabelText('camera')).toHaveTextContent('📸');
     });
@@ -41,7 +43,7 @@ describe('emoji is visible', () => {
 //   ------ test for link visibility to ensure user can use them ------
 describe('links are visible', () => {
     it('inserts text into the links', () => {
-        const { getByTestId } = render(<Nav />);
+        const { getByTestId } = render(<Nav/>);
         // arrange
         expect(getByTestId('link')).toHaveTextContent('Oh Snap!');
         // assert
