@@ -41,20 +41,21 @@ describe('emoji is visible', () => {
 //   ------ test for link visibility to ensure user can use them ------
 describe('links are visible', () => {
     it('inserts text into the links', () => {
+        const { getByTestId } = render(<Nav />);
         // arrange
         expect(getByTestId('link')).toHaveTextContent('Oh Snap!');
         // assert
-        expect(getTestId('about')).toHaveTextContent('About me');
+        expect(getByTestId('about')).toHaveTextContent('About Me');
     });
 })
 
 // const { getByTestId } = render(<Nav />);
 
-describe('links are visible', () => {
-    it('inserts text into the links', () => {
-        const { getByTestId } = render(<Nav />);
-        expect(getByTestId('link')).toHaveTextContent('Oh Snap!');
-        expect(getByTestId('about')).toHaveTextContent('About me');
-    });
-})
+// describe('links are visible', () => {
+//     it('inserts text into the links', () => {
+//         const { getByTestId } = render(<Nav />);
+//         expect(getByTestId('link')).toHaveTextContent('Oh Snap!');
+//         expect(getByTestId('about')).toHaveTextContent('About Me');
+//     });
+// })
 
