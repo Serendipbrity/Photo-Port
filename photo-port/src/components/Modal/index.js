@@ -1,0 +1,21 @@
+import React from "react";
+// currentPhoto parameter is destructured props
+function Modal({ onClose, currentPhoto }) {
+    // destructure properties into constants to assign their values in the modal
+        const { name, category, description, index } = currentPhoto;
+    
+    return (
+        <div className="modalBackdrop">
+            <div className="modalContainer">
+                <h3 className="modalTitle">{ name }</h3>
+                <img alt="current category" src={require(`../../assets/large/${category}/${index}.jpg}`).default} />
+                <p>{description}</p>
+                <button type="button" onClick={onClose}>
+                    Close this modal
+                </button>
+            </div>
+        </div>
+    );
+}
+
+export default Modal;

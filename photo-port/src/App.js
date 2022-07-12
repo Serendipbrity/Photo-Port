@@ -30,9 +30,6 @@ function App() {
         setContactSelected = {setContactSelected}
       ></Nav>
       <main>
-      {/* <ContactForm />
-        <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About> */}
         {/* if contact tab not selected, only show gallery and about */}
         {!contactSelected ? (
           <>
