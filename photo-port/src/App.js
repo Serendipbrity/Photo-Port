@@ -17,7 +17,8 @@ function App() {
   ]); 
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
-
+  //  set initial value of contact selected to false to prevent the contact form from showing when user initially enters the page
+  const [contactSelected, setContactSelected] = useState(false);
   return (
     <div>
       
@@ -25,12 +26,22 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected = {setContactSelected}
       ></Nav>
       <main>
-      <ContactForm />
+      {/* <ContactForm />
         <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
-        
+        <About></About> */}
+        {/* if contact tab not selected, only show gallery and about */}
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+            <ContactForm></ContactForm>
+        )}
       </main>
     </div>
   );

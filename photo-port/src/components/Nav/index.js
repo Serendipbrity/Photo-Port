@@ -6,6 +6,8 @@ function Nav(props) {
     categories = [],
     setCurrentCategory,
     currentCategory,
+      contactSelected,
+    setContactSelected
   } = props;
 
 
@@ -23,20 +25,22 @@ function Nav(props) {
       </h2>
       <nav>
         <ul className="flex-row">
-          <li className="mx-2">
-            <a data-testid="about" href="#about">
+                  <li className="mx-2">
+                      {/* when About is selected, contactSelected is set to false and About is rendered */}
+            <a data-testid="about" href="#about" onClick={()=> setContactSelected(false)}>
               About me
             </a>
-          </li>
-          <li className={"mx-2"}>
-            <span onClick={() => handleClick('Contact')}>
-              Contact
-            </span>
+                  </li>
+                  {/* if user selects contact, add navActive to illuminate background*/}
+          <li className={`mx-2 ${contactSelected && 'navActive'}`}>
+            <a href='#contact-form'onClick={() => handleClick('Contact')}>
+              <span onClick={()=> setContactSelected(true)}>Contact</span>
+            </a>
           </li>
           {categories.map((category) => (
             <li
               className={`mx-1 ${
-                currentCategory.name === category.name
+                currentCategory.name === category.name && !contactSelected && `navActive`
                 }`}
               key={category.name}
             >
